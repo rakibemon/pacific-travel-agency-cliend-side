@@ -1,0 +1,9 @@
+.blog-text{
+    background-color: #fff;
+    padding: 12px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    position: relative;
+    width: 92%;
+    margin: 0px auto;
+    top: -40px;
+}

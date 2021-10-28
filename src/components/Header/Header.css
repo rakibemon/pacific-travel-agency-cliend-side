@@ -1,0 +1,34 @@
+.nav-link{
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 24px;
+    color: #111;
+    transition: all 0.01ms linear;
+    margin-right: 16px;
+    padding: 12px 24px !important;
+}
+.nav-link:hover{
+    color: #fff !important;
+    background-color: #FF8000;
+}
+.auth-button{
+    background-color: #3089FC;
+    border-color: #3089FC;
+    transition: all 0.3s linear;
+    padding: 10px 20px !important;
+    color: #fff;
+    transition: all 0.3s linear;
+}
+.auth-button:hover{
+    background-color: #FF8000 !important;
+    border-color: #FF8000 !important;
+}
+.user-img{
+        max-width: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+}
+.logged-user-name{
+    position: relative;
+    top: 10px;
+}

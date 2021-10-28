@@ -1,0 +1,13 @@
+.about-bg{
+    margin-top: 60px;
+    width: 100%;
+    object-fit: cover;
+    height: 50vh;
+}
+.about-img{
+    position: relative;
+    top: -100px;
+    background-color: #fff;
+    padding: 16px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
