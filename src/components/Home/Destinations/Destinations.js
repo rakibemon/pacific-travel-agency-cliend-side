@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
 import Destination from '../Destination/Destination';
 
 const Destinations = () => {
     const [destinations, setDestinations] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
+        setIsLoading(true)
         fetch('https://safe-citadel-81362.herokuapp.com/destinations')
             .then(res => res.json())
-            .then(data => setDestinations(data))
-    }, [])
+            .then(data => {
+                setDestinations(data)
+                setIsLoading(false)
+            })
+    }, []);
+    if (isLoading) {
+        return (
+            <div className='text-center'>
+                <Spinner style={{ marginTop: '120px' }} animation="grow" variant="warning" />
+            </div>
+        );
+    };
     return (
         <Container id='destination'>
             <Row className='g-4 my-4'>

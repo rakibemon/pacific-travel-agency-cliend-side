@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { useHistory, useLocation } from 'react-router';
 import useAuth from '../hooks/useAuth';
@@ -23,6 +23,10 @@ const Login = () => {
                 setIsLoading(false)
             })
     };
+    //change the title when change the route
+    useEffect(()=>{
+        document.title='Login';
+      },[]);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     return (

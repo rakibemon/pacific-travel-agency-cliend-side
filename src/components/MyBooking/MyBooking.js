@@ -5,6 +5,10 @@ import useAuth from '../hooks/useAuth';
 import './MyBooking.css';
 
 const MyBooking = () => {
+    //change the title when change the route
+    useEffect(()=>{
+        document.title='My Booking';
+      },[]);
     const [booking, setBooking] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [deleteAcknowledged, setDeleteAcknowledged] = useState(false);

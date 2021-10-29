@@ -6,6 +6,10 @@ const ManageAllBooking = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [deleteAcknowledged, setDeleteAcknowledged] = useState(false);
     const [modifiedAcknowledged, setModifiedAcknowledged] = useState(false);
+    //change the title when change the route
+    useEffect(()=>{
+        document.title='Manage All Booking (Admin)';
+      },[]);
     useEffect(() => {
         setIsLoading(true)
         fetch('https://safe-citadel-81362.herokuapp.com/manageallorder')
@@ -54,7 +58,8 @@ const ManageAllBooking = () => {
                 setModifiedAcknowledged(true)
             }
         })
-    }
+    };
+    
     return (
         <Container style={{ marginTop: '200px' }}>
             {
