@@ -8,7 +8,7 @@ const MyBooking = () => {
     const {email} = user || {};
     // const {email} = user || {}
     useEffect(()=>{
-        fetch(`http://localhost:5000/mybooking/${email}`)
+        fetch(`https://safe-citadel-81362.herokuapp.com/mybooking/${email}`)
         .then(res => res.json())
         .then(data => setBooking(data))
     },[email])
