@@ -29,7 +29,7 @@ const MyBooking = () => {
     const handleDelete = (id) => {
         const warning = window.confirm("Are you sure to cancle the booking")
         if (warning) {
-            fetch(`http://localhost:5000/delete/${id}`, {
+            fetch(`https://safe-citadel-81362.herokuapp.com/delete/${id}`, {
                 method: 'DELETE',
                 headers: { "Content-Type": "application/json" }
             })

@@ -8,7 +8,7 @@ const ManageAllBooking = () => {
     const [modifiedAcknowledged, setModifiedAcknowledged] = useState(false);
     useEffect(() => {
         setIsLoading(true)
-        fetch('http://localhost:5000/manageallorder')
+        fetch('https://safe-citadel-81362.herokuapp.com/manageallorder')
             .then(res => res.json())
             .then(data => {
                 setAllBooking(data)
@@ -26,7 +26,7 @@ const ManageAllBooking = () => {
     const handleDelete = (id) => {
         const warning = window.confirm("Are you sure to cancle the booking")
         if (warning) {
-            fetch(`http://localhost:5000/delete/${id}`, {
+            fetch(`https://safe-citadel-81362.herokuapp.com/delete/${id}`, {
                 method: 'DELETE',
                 headers: { "Content-Type": "application/json" }
             })
@@ -41,7 +41,7 @@ const ManageAllBooking = () => {
     };
     const handleStatus = (id) =>{
         const status = {statu:"Confrimed"};
-        fetch(`http://localhost:5000/status/${id}`,{
+        fetch(`https://safe-citadel-81362.herokuapp.com/status/${id}`,{
             method:"PUT",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(status)
