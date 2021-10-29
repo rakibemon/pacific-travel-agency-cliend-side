@@ -29,7 +29,7 @@ function App() {
               <Login/>
               <Footer></Footer>
             </Route>
-            <PrivateRoute exact path='/userinfo'>
+            <PrivateRoute exact path='/destination/:userid'>
               <Header/>
               <UserInfo/>
               <Footer></Footer>

@@ -1,23 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Form, Row, Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import { useParams } from 'react-router';
 import useAuth from '../hooks/useAuth';
 const UserInfo = () => {
+    const [singleDestination, setSingleDestination] = useState({});
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
+    const { userid } = useParams();
+    useEffect(() => {
+        fetch(`http://localhost:5000/destination/${userid}`)
+            .then(res => res.json())
+            .then(data => setSingleDestination(data))
+    }, [userid]);
     const { user } = useAuth()
     const onSubmit = data => {
-        fetch(`http://localhost:5000/userinfo`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data) {
-                    alert("Booking Successfully")
-                }
+        if (singleDestination) {
+            data.destation = singleDestination;
+            fetch(`http://localhost:5000/userinfo`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
             })
-        reset();
+                .then(res => res.json())
+                .then(data => {
+                    if (data) {
+                        alert("Booking Successfully")
+                    }
+                })
+            reset();
+        }
+
     };
     return (
         <div className='mt-5 pt-5'>
@@ -71,7 +83,7 @@ const UserInfo = () => {
 
                         <Form.Group as={Col} controlId="formGridZip">
                             <Form.Label>Zip</Form.Label>
-                            <Form.Control {...register("zip", { required: true })}/>
+                            <Form.Control {...register("zip", { required: true })} />
                         </Form.Group>
                     </Row>
                     {errors.exampleRequired && <span>This field is required</span>}
