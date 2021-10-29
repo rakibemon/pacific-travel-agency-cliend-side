@@ -1,24 +1,20 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { Col, Container, Row, Spinner, Button } from 'react-bootstrap';
-import useAuth from '../hooks/useAuth';
-import './MyBooking.css';
+import React, { useEffect, useState } from 'react';
+import { Col, Container, Row, Button, Spinner } from 'react-bootstrap';
 
-const MyBooking = () => {
-    const [booking, setBooking] = useState([]);
+const ManageAllBooking = () => {
+    const [allBooking, setAllBooking] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [deleteAcknowledged, setDeleteAcknowledged] = useState(false);
-    const { user } = useAuth();
-    const { email } = user || {};
+    const [modifiedAcknowledged, setModifiedAcknowledged] = useState(false);
     useEffect(() => {
         setIsLoading(true)
-        fetch(`https://safe-citadel-81362.herokuapp.com/mybooking/${email}`)
+        fetch('http://localhost:5000/manageallorder')
             .then(res => res.json())
             .then(data => {
-                setBooking(data)
+                setAllBooking(data)
                 setIsLoading(false)
-            })
-    }, [email,deleteAcknowledged]);
+            });
+    }, [deleteAcknowledged,modifiedAcknowledged]);
     if (isLoading) {
         return (
             <div className='text-center'>
@@ -26,6 +22,7 @@ const MyBooking = () => {
             </div>
         );
     };
+
     const handleDelete = (id) => {
         const warning = window.confirm("Are you sure to cancle the booking")
         if (warning) {
@@ -42,12 +39,28 @@ const MyBooking = () => {
                 })
         }
     };
+    const handleStatus = (id) =>{
+        const status = {statu:"Confrimed"};
+        fetch(`http://localhost:5000/status/${id}`,{
+            method:"PUT",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(status)
+            
+        })
+        .then(res=>res.json())
+        .then(data => {
+            if(data){
+                alert("Status Updated to Confirmed");
+                setModifiedAcknowledged(true)
+            }
+        })
+    }
     return (
         <Container style={{ marginTop: '200px' }}>
             {
                 <Row className='g-4 mt-5 booking-card'>
                     {
-                        booking.map(booked => {
+                        allBooking.map(booked => {
                             return (
                                 <Col xs={12} md={6} key={booked?._id}>
                                     <div className='d-flex'>
@@ -58,8 +71,10 @@ const MyBooking = () => {
                                             <h3>{booked?.destation?.name}</h3>
                                             <p>${booked?.destation?.price}</p>
                                             <p>{booked?.destation?.place}</p>
+                                            <p> <b>{booked?.email}</b></p>
                                             <h6>Status : {booked?.status}</h6>
-                                            <Button onClick={() => handleDelete(booked?._id)} className='mt-3'> Cancel Booking</Button>
+                                            <Button onClick={() => handleDelete(booked?._id)} className='mt-3 me-3'>Cancel Booking</Button>
+                                            <Button onClick={()=>handleStatus(booked?._id)} className='mt-3'>Status change</Button>
                                         </div>
                                     </div>
                                 </Col>
@@ -72,4 +87,4 @@ const MyBooking = () => {
     );
 };
 
-export default MyBooking;
+export default ManageAllBooking;

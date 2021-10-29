@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Form, Row, Button } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import useAuth from '../hooks/useAuth';
 const UserInfo = () => {
+    const history = useHistory();
     const [singleDestination, setSingleDestination] = useState({});
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const { userid } = useParams();
@@ -16,6 +17,7 @@ const UserInfo = () => {
     const onSubmit = data => {
         if (singleDestination) {
             data.destation = singleDestination;
+            data.status = 'Pending'
             fetch('https://safe-citadel-81362.herokuapp.com/userinfo', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -24,7 +26,8 @@ const UserInfo = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data) {
-                        alert("Booking Successfully")
+                        alert("Booking Successfully");
+                        history.push('/home')
                         reset();
                     }
                 })

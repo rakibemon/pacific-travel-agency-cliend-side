@@ -8,6 +8,7 @@ import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import UserInfo from './components/UserInfo/UserInfo';
 import MyBooking from './components/MyBooking/MyBooking';
+import ManageAllBooking from './components/ManageAllBooking/ManageAllBooking';
 
 function App() {
   return (
@@ -30,11 +31,16 @@ function App() {
               <Login/>
               <Footer></Footer>
             </Route>
-            <Route exact path='/mybooking'>
+            <PrivateRoute exact path='/mybooking'>
               <Header/>
               <MyBooking/>
               <Footer></Footer>
-            </Route>
+            </PrivateRoute>
+            <PrivateRoute exact path='/manageallbooking'>
+              <Header/>
+              <ManageAllBooking/>
+              <Footer></Footer>
+            </PrivateRoute>
             <PrivateRoute exact path='/destination/:userid'>
               <Header/>
               <UserInfo/>
