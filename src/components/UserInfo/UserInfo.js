@@ -8,7 +8,7 @@ const UserInfo = () => {
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const { userid } = useParams();
     useEffect(() => {
-        fetch(`http://localhost:5000/destination/${userid}`)
+        fetch(`https://safe-citadel-81362.herokuapp.com/${userid}`)
             .then(res => res.json())
             .then(data => setSingleDestination(data))
     }, [userid]);
@@ -16,7 +16,7 @@ const UserInfo = () => {
     const onSubmit = data => {
         if (singleDestination) {
             data.destation = singleDestination;
-            fetch(`http://localhost:5000/userinfo`, {
+            fetch(`https://safe-citadel-81362.herokuapp.com/userinfo`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
