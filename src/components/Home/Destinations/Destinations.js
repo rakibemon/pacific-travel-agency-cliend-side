@@ -10,7 +10,7 @@ const Destinations = () => {
             .then(data => setDestinations(data))
     }, [])
     return (
-        <Container>
+        <Container id='destination'>
             <Row className='g-4 my-4'>
                 <h1 className='text-center'>Tour Destination</h1>
                 {

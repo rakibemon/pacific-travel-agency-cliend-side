@@ -8,7 +8,7 @@ const UserInfo = () => {
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const { userid } = useParams();
     useEffect(() => {
-        fetch(`https://safe-citadel-81362.herokuapp.com/${userid}`)
+        fetch(`https://safe-citadel-81362.herokuapp.com/destination/${userid}`)
             .then(res => res.json())
             .then(data => setSingleDestination(data))
     }, [userid]);
@@ -16,7 +16,7 @@ const UserInfo = () => {
     const onSubmit = data => {
         if (singleDestination) {
             data.destation = singleDestination;
-            fetch(`https://safe-citadel-81362.herokuapp.com/userinfo`, {
+            fetch('https://safe-citadel-81362.herokuapp.com/userinfo', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
@@ -25,9 +25,9 @@ const UserInfo = () => {
                 .then(data => {
                     if (data) {
                         alert("Booking Successfully")
+                        reset();
                     }
                 })
-            reset();
         }
 
     };
@@ -50,6 +50,29 @@ const UserInfo = () => {
                             <Form.Label column sm="2">Email</Form.Label>
                             <Col sm="10">
                                 <Form.Control {...register("email")} style={{ fontWeight: '700', color: 'cadetblue' }} plaintext readOnly defaultValue={user?.email} />
+                            </Col>
+                        </Form.Group>
+                    </Row>
+
+                    <Row className="mb-3">
+
+                        <Form.Group as={Col} controlId="formPlaintextName">
+                            <Form.Label column sm="2">Destination</Form.Label>
+                            <Col sm="10">
+                                <Form.Control style={{ fontWeight: '700', color: 'cadetblue' }} plaintext readOnly defaultValue={singleDestination?.name} />
+                            </Col>
+                        </Form.Group>
+
+                        <Form.Group as={Col} controlId="formPlaintextEmail">
+                            <Form.Label column sm="2">Price</Form.Label>
+                            <Col sm="10">
+                                <Form.Control style={{ fontWeight: '700', color: 'cadetblue' }} plaintext readOnly defaultValue={singleDestination?.price} />
+                            </Col>
+                        </Form.Group>
+                        <Form.Group as={Col} controlId="formPlaintextEmail">
+                            <Form.Label column sm="2">Duration</Form.Label>
+                            <Col sm="10">
+                                <Form.Control style={{ fontWeight: '700', color: 'cadetblue' }} plaintext readOnly defaultValue={singleDestination?.duration} />
                             </Col>
                         </Form.Group>
                     </Row>
@@ -88,7 +111,7 @@ const UserInfo = () => {
                     </Row>
                     {errors.exampleRequired && <span>This field is required</span>}
                     <Button variant="primary" type="submit">
-                        Submit
+                        Confirm Your Booking
                     </Button>
                 </form>
             </Container>

@@ -23,13 +23,13 @@ const Header = () => {
                         <Nav className="me-auto d-flex justify-content-start align-items-center">
                             <NavHashLink activeStyle={activeStyle} className="nav-link" to='/home#hero'> Home</NavHashLink>
 
-                            <NavHashLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/home#services'> Destinatios</NavHashLink>
+                            <NavHashLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/home#destination'> Destinatios</NavHashLink>
 
-                            <NavHashLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/home#package'> Package</NavHashLink>
+                            <NavHashLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/home#about'> About</NavHashLink>
 
-                            <NavLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/news'> News</NavLink>
+                            <NavHashLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/home#blog'> Blog</NavHashLink>
 
-                            <NavLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/contact'> Contact</NavLink>
+                            <NavLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/mybooking'> My Booking </NavLink>
 
 
 

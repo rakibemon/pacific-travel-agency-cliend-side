@@ -10,7 +10,7 @@ const Blog = () => {
             .then(data => setBlogs(data))
     }, []);
     return (
-        <Container>
+        <Container id='blog'>
             <Row className='g-4'>
                 <h3>Our Blog</h3>
                 <h1>Recent Post</h1>
