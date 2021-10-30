@@ -8,7 +8,7 @@
 }
 .nav-link:hover{
     color: #fff !important;
-    background-color: #FF8000;
+    background-color: #F15D30;
 }
 .auth-button{
     background-color: #3089FC;
@@ -19,8 +19,8 @@
     transition: all 0.3s linear;
 }
 .auth-button:hover{
-    background-color: #FF8000 !important;
-    border-color: #FF8000 !important;
+    background-color: #F15D30 !important;
+    border-color: #F15D30 !important;
 }
 .user-img{
         max-width: 40px;
@@ -30,4 +30,13 @@
 .logged-user-name{
     position: relative;
     top: 10px;
+}
+
+/* For Mobile */
+@media only screen and (max-width:600px){
+    .user-info{
+        margin-top: 20px;
+        align-items: center;
+        justify-content: center;
+    }
 }

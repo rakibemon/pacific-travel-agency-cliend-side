@@ -3,7 +3,7 @@ import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 const UpdateService = () => {
-    const {serviceId} = useParams();
+    const { serviceId } = useParams();
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
 

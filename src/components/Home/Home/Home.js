@@ -6,9 +6,9 @@ import Hero from '../Hero/Hero';
 
 const Home = () => {
     //change the title when change the route
-    useEffect(()=>{
-        document.title='Pacific Travel Agency';
-      },[]);
+    useEffect(() => {
+        document.title = 'Pacific Travel Agency';
+    }, []);
     return (
         <div>
             <Hero></Hero>

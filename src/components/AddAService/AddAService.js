@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 const AddAService = () => {
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-
+        // send data to server site by post method
         fetch('https://safe-citadel-81362.herokuapp.com/addaservice', {
             method: "POST",
             headers: { "Content-Type": "application/json" },

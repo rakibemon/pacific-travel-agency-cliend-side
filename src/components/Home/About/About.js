@@ -3,6 +3,7 @@ import './About.css';
 import aboutBanner from '../../../img/about-banner.jpg';
 import aboutImg from '../../../img/about-img.jpg';
 import { Col, Container, Row, Button } from 'react-bootstrap';
+import { NavHashLink } from 'react-router-hash-link';
 const About = () => {
     return (
         <div>
@@ -20,11 +21,11 @@ const About = () => {
                             </div>
                         </Col>
                         <Col xs={12} md={6}>
-                            <div>
-                                <h3>About Us</h3>
-                                <h1>Make Your Tour <br /> Memorable and Safe <br /> With Us</h1>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                                <Button className='button text-white me-3'> Book Your Destination </Button>
+                            <div className='ms-4 about-text-container'>
+                                <h3 className='about-subtitle'>About Us</h3>
+                                <h1 className='about-title'>Make Your Tour <br /> Memorable and Safe <br /> With Us</h1>
+                                <p className='about-description'>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                                <NavHashLink to='/home#destination'><Button className='button about-button text-white me-3 py-2 px-3'> Book Your Destination </Button></NavHashLink>
                             </div>
                         </Col>
                     </Row>

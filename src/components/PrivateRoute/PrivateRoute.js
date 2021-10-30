@@ -9,7 +9,7 @@ const PrivateRoute = ({ children, ...rest }) => {
     if (isLoading) {
         return (
             <div className='text-center'>
-                <Spinner style={{paddingTop:'100px'}} animation="grow" variant="warning" />
+                <Spinner style={{ paddingTop: '100px' }} animation="grow" variant="warning" />
             </div>
         )
     }

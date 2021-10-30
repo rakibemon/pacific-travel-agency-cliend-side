@@ -1,11 +1,13 @@
 .footer{
+    background: url('https://preview.colorlib.com/theme/pacific/images/xbg_3.jpg.pagespeed.ic.HSaugsFrb6.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin-top: 20px;
-    background-color: #314355;
     padding-top: 100px;
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    color: #fff;
 }
 .link-none{
     text-decoration: none;
@@ -24,18 +26,18 @@
     text-transform: uppercase;
 }
 .social-link{
-    color: #fff;
+    color: #111;
     margin-right: 16px;
     font-size: 32px;
     transition: transform 0.1s linear;
 }
 .social-link:hover{
    transform: rotate(360deg);
-   color: rgb(0, 236, 236);
+   color: #F15D30;
 }
 .link{
     text-decoration: none;
-    color: #fff;
+    color:#00000080;
 }
 .link:hover{
     color: #FF8000;

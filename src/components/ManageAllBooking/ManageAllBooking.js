@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row, Button, Spinner } from 'react-bootstrap';
+import { Container, Button, Spinner, Table } from 'react-bootstrap';
 
 const ManageAllBooking = () => {
     const [allBooking, setAllBooking] = useState([]);
@@ -7,9 +7,11 @@ const ManageAllBooking = () => {
     const [deleteAcknowledged, setDeleteAcknowledged] = useState(false);
     const [modifiedAcknowledged, setModifiedAcknowledged] = useState(false);
     //change the title when change the route
-    useEffect(()=>{
-        document.title='Manage All Booking (Admin)';
-      },[]);
+    useEffect(() => {
+        document.title = 'Manage All Booking (Admin)';
+    }, []);
+
+    // Load all user data from DB
     useEffect(() => {
         setIsLoading(true)
         fetch('https://safe-citadel-81362.herokuapp.com/manageallorder')
@@ -18,7 +20,9 @@ const ManageAllBooking = () => {
                 setAllBooking(data)
                 setIsLoading(false)
             });
-    }, [deleteAcknowledged,modifiedAcknowledged]);
+    }, [deleteAcknowledged, modifiedAcknowledged]);
+
+    // Show spinner when data isn't loaded up
     if (isLoading) {
         return (
             <div className='text-center'>
@@ -27,6 +31,7 @@ const ManageAllBooking = () => {
         );
     };
 
+    // Delete specific Booking
     const handleDelete = (id) => {
         const warning = window.confirm("Are you sure to cancle the booking")
         if (warning) {
@@ -43,53 +48,64 @@ const ManageAllBooking = () => {
                 })
         }
     };
-    const handleStatus = (id) =>{
-        const status = {statu:"Confrimed"};
-        fetch(`https://safe-citadel-81362.herokuapp.com/status/${id}`,{
-            method:"PUT",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(status)
-            
+
+    // Update Status Pending to Confirm
+    const handleStatus = (id) => {
+        const status = { statu: "Confrimed" };
+        fetch(`https://safe-citadel-81362.herokuapp.com/status/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(status)
+
         })
-        .then(res=>res.json())
-        .then(data => {
-            if(data){
-                alert("Status Updated to Confirmed");
-                setModifiedAcknowledged(true)
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    alert("Status Updated to Confirmed");
+                    setModifiedAcknowledged(true)
+                }
+            })
     };
-    
+
     return (
         <Container style={{ marginTop: '200px' }}>
             {
-                <Row className='g-4 mt-5 booking-card'>
+                <Table responsive striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th>SL.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Place name</th>
+                            <th>Duration</th>
+                            <th>Status</th>
+                            <th>Cancel</th>
+                            <th>Change Status</th>
+                        </tr>
+                    </thead>
                     {
-                        allBooking.map(booked => {
+                        allBooking.map((booked, index) => {
                             return (
-                                <Col xs={12} md={6} key={booked?._id}>
-                                    <div className='d-flex'>
-                                        <figure>
-                                            <img src={booked?.destation?.img} alt="" />
-                                        </figure>
-                                        <div className='ms-4'>
-                                            <h3>{booked?.destation?.name}</h3>
-                                            <p>${booked?.destation?.price}</p>
-                                            <p>{booked?.destation?.place}</p>
-                                            <p> <b>{booked?.email}</b></p>
-                                            <h6>Status : {booked?.status}</h6>
-                                            <Button onClick={() => handleDelete(booked?._id)} className='mt-3 me-3'>Cancel Booking</Button>
-                                            <Button onClick={()=>handleStatus(booked?._id)} className='mt-3'>Status change</Button>
-                                        </div>
-                                    </div>
-                                </Col>
+                                <tbody key={booked?._id} style={{ fontWeight: '500' }}>
+                                    <tr>
+                                        <td>{index + 1}</td>
+                                        <td>{booked?.displayName}</td>
+                                        <td>{booked?.email}</td>
+                                        <td>{booked?.destation?.name}</td>
+                                        <td>{booked?.destation?.duration}</td>
+                                        <td style={{ color: '#f15d30' }}>{booked?.status}</td>
+                                        <td><Button onClick={() => handleDelete(booked?._id)} className='button me-3'>Cancel Booking</Button></td>
+                                        <td><Button onClick={() => handleStatus(booked?._id)} className='button'>Change Status</Button></td>
+                                    </tr>
+                                </tbody>
                             );
                         })
                     }
-                </Row>
+                </Table>
             }
         </Container>
     );
 };
+
 
 export default ManageAllBooking;

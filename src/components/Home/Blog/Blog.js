@@ -12,8 +12,8 @@ const Blog = () => {
     return (
         <Container id='blog'>
             <Row className='g-4'>
-                <h3>Our Blog</h3>
-                <h1>Recent Post</h1>
+                <h3 className='about-subtitle text-center'>Our Blog</h3>
+                <h1 className='about-title text-center'>Recent Post</h1>
                 {
                     blogs.map(blog => {
                         return (
@@ -24,7 +24,7 @@ const Blog = () => {
                                     </figure>
 
                                     <div className='blog-text'>
-                                        <h3>{blog?.name}</h3>
+                                        <h5 className='mb-4'>{blog?.name}</h5>
                                         <Button className='button text-white me-3'> Read More </Button>
                                     </div>
                                 </div>

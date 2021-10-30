@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Spinner } from 'react-bootstrap';
 import Destination from '../Destination/Destination';
-
+import './Destinations.css'
 const Destinations = () => {
     const [destinations, setDestinations] = useState([]);
+    // use this state to determain data is lodded or not
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         setIsLoading(true)
@@ -14,6 +15,8 @@ const Destinations = () => {
                 setIsLoading(false)
             })
     }, []);
+
+    // Show spinner when data is not lodded
     if (isLoading) {
         return (
             <div className='text-center'>
@@ -24,7 +27,8 @@ const Destinations = () => {
     return (
         <Container id='destination'>
             <Row className='g-4 my-4'>
-                <h1 className='text-center'>Tour Destination</h1>
+                <h2 className='text-center destination-subtitle'>Destination</h2>
+                <h1 className='text-center destination-title'>Tour Destination</h1>
                 {
                     destinations.map(destination => <Destination key={destination._id} destination={destination}></Destination>)
                 }
