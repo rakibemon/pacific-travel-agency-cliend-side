@@ -33,11 +33,11 @@ const Header = () => {
                             {(user.displayName || user.email) &&
 
                                 <div className='d-md-flex text-center'>
-                                    <NavLink activeStyle={activeStyle} className="nav-link" to='/mybooking'> My Booking </NavLink>
+                                    <NavLink activeStyle={activeStyle} className="nav-link-user-active" to='/mybooking'> My Booking </NavLink>
 
-                                    <NavLink activeStyle={activeStyle} className="nav-link" to='/manageallbooking'> Manage All bookings </NavLink>
+                                    <NavLink activeStyle={activeStyle} className="nav-link-user-active" to='/manageallbooking'> Manage All bookings </NavLink>
 
-                                    <NavLink activeStyle={activeStyle} className="nav-link" to='/addaservice'> Add a Service </NavLink>
+                                    <NavLink activeStyle={activeStyle} className="nav-link-user-active" to='/addaservice'> Add a Service </NavLink>
                                 </div>
 
                             }
