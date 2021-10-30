@@ -35,11 +35,11 @@ function App() {
               <Login />
               <Footer></Footer>
             </Route>
-            <Route exact path='/addaservice'>
+            <PrivateRoute exact path='/addaservice'>
               <Header />
               <AddAService />
               <Footer></Footer>
-            </Route>
+            </PrivateRoute>
             <PrivateRoute exact path='/mybooking'>
               <Header />
               <MyBooking />
@@ -55,11 +55,11 @@ function App() {
               <UserInfo />
               <Footer></Footer>
             </PrivateRoute>
-            <Route exact path='/updateservice/:serviceId'>
+            <PrivateRoute exact path='/updateservice/:serviceId'>
               <Header />
               <UpdateService />
               <Footer></Footer>
-            </Route>
+            </PrivateRoute>
             <Route exact path='/reg'>
               <Header />
               <SignUp />
