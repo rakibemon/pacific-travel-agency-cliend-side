@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 const AddAService = () => {
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
+    //change the title when change the route
+    useEffect(() => {
+        document.title = 'Add a Service';
+    }, []);
     const onSubmit = data => {
         // send data to server site by post method
         fetch('https://safe-citadel-81362.herokuapp.com/addaservice', {
