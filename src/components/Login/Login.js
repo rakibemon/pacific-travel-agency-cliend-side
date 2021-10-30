@@ -35,6 +35,7 @@ const Login = () => {
 
         <Container style={{ marginTop: '120px' }}>
             <Row className='g-4 d-flex justify-content-center align-items-center w-75 mx-auto login-row p-3'>
+            <h3 className="text-center">Please Log in</h3>
 
                 <Col xs={12} md={6}>
                     <figure>
