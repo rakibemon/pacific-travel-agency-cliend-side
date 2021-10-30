@@ -30,7 +30,10 @@ const Header = () => {
                             <NavHashLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/home#blog'> Blog</NavHashLink>
 
                             <NavLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/mybooking'> My Booking </NavLink>
+
                             <NavLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/manageallbooking'> Manage All booking </NavLink>
+
+                            <NavLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/addaservice'> Add a Service </NavLink>
 
 
 

@@ -9,6 +9,8 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import UserInfo from './components/UserInfo/UserInfo';
 import MyBooking from './components/MyBooking/MyBooking';
 import ManageAllBooking from './components/ManageAllBooking/ManageAllBooking';
+import AddAService from './components/AddAService/AddAService';
+import UpdateService from './components/UpdateService/UpdateService';
 
 function App() {
   return (
@@ -31,6 +33,11 @@ function App() {
               <Login/>
               <Footer></Footer>
             </Route>
+            <Route exact path='/addaservice'>
+              <Header/>
+              <AddAService/>
+              <Footer></Footer>
+            </Route>
             <PrivateRoute exact path='/mybooking'>
               <Header/>
               <MyBooking/>
@@ -46,6 +53,11 @@ function App() {
               <UserInfo/>
               <Footer></Footer>
             </PrivateRoute>
+            <Route exact path='/updateservice/:serviceId'>
+              <Header/>
+              <UpdateService/>
+              <Footer></Footer>
+            </Route>
             
           </Switch>
         </Router>

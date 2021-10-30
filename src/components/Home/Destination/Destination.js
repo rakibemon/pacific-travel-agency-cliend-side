@@ -7,6 +7,9 @@ const Destination = ({destination}) => {
     const history = useHistory();
     const handleBookNow = (id) =>{
         history.push(`/destination/${id}`)
+    };
+    const handleUpdate = (id) =>{
+        history.push(`/updateservice/${id}`)
     }
     return (
         <Col xs={12} md={6} lg={4} >
@@ -17,7 +20,7 @@ const Destination = ({destination}) => {
                 <p>{description.slice(0, 100)}</p>
                 <div className='text-center'>
                     <Button onClick={()=>handleBookNow(_id)} className='button text-white me-3'> Book Now </Button>
-                    <Button className='button text-white'> Delete </Button>
+                    <Button onClick={()=>handleUpdate(_id)} className='button text-white'> Update </Button>
                 </div>
             </div>
         </Col>

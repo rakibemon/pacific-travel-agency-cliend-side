@@ -1,11 +1,10 @@
 .nav-link{
     text-decoration: none;
     font-weight: 600;
-    padding: 12px 24px;
     color: #111;
     transition: all 0.01ms linear;
-    margin-right: 16px;
-    padding: 12px 24px !important;
+    margin-right: 10px;
+    padding: 8px 16px !important;
 }
 .nav-link:hover{
     color: #fff !important;
