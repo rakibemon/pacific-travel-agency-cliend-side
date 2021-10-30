@@ -9,9 +9,9 @@ const Hero = () => {
                 <Container>
                     <Row className='hero-section'>
                         <Col xs={12} md={12}>
-                            <h1 className='hero-title'>Discover Your Favorite<br /> <b> Place with Us</b></h1>
+                            <h1 className='hero-title'>Discover Your Favorite<br /> Place with Us</h1>
                             <p>Travel to the any corner of the world, without going around in circles</p>
-                            <NavHashLink to='/home#destination'><Button variant='success rounded-lg py-3 px-4'>Take a Look</Button></NavHashLink>
+                            <NavHashLink to='/home#destination'><Button className='rounded-lg py-2 px-3' variant='success' >Have a look</Button></NavHashLink>
                         </Col>
                     </Row>
                 </Container>

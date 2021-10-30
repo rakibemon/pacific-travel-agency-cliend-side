@@ -27,7 +27,7 @@ const UserInfo = () => {
                 .then(data => {
                     if (data) {
                         alert("Booking Successfully");
-                        history.push('/home')
+                        history.push('/mybooking')
                         reset();
                     }
                 })
@@ -113,7 +113,7 @@ const UserInfo = () => {
                         </Form.Group>
                     </Row>
                     {errors.exampleRequired && <span>This field is required</span>}
-                    <Button variant="primary" type="submit">
+                    <Button className='button' type="submit">
                         Confirm Your Booking
                     </Button>
                 </form>

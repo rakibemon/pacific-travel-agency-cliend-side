@@ -27,7 +27,7 @@ const UpdateService = () => {
 
             <Container className='d-flex justify-content-center align-items-center' style={{ marginTop: '100px', height: '60vh' }}>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <h1 className='text-center mb-4 info-title'> Update Service Info of <b>{serviceId}</b> insert here</h1>
+                    <h1 className='text-center mb-4 info-title'> Update Service Info of Id : <b>{serviceId}</b></h1>
 
 
 
@@ -59,7 +59,7 @@ const UpdateService = () => {
                     </Row>
 
                     {errors.exampleRequired && <span>This field is required</span>}
-                    <Button variant="primary" type="submit">
+                    <Button className='button' type="submit">
                         Update Service
                     </Button>
                 </form>
