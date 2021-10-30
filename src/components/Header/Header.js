@@ -23,21 +23,21 @@ const Header = () => {
                         <Nav className="me-auto d-flex justify-content-start align-items-center">
                             <NavHashLink activeStyle={activeStyle} className="nav-link" to='/home#hero'> Home</NavHashLink>
 
-                            <NavHashLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/home#destination'> Destinatios</NavHashLink>
+                            <NavHashLink activeStyle={activeStyle} className="nav-link" to='/home#destination'> Destinatios</NavHashLink>
 
-                            <NavHashLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/home#about'> About</NavHashLink>
+                            <NavHashLink activeStyle={activeStyle} className="nav-link" to='/home#about'> About</NavHashLink>
 
-                            <NavHashLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/home#blog'> Blog</NavHashLink>
+                            <NavHashLink activeStyle={activeStyle} className="nav-link" to='/home#blog'> Blog</NavHashLink>
 
                             {/* This button will show only if login any user */}
                             {(user.displayName || user.email) &&
 
                                 <div className='d-md-flex text-center'>
-                                    <NavLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/mybooking'> My Booking </NavLink>
+                                    <NavLink activeStyle={activeStyle} className="nav-link" to='/mybooking'> My Booking </NavLink>
 
-                                    <NavLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/manageallbooking'> Manage All bookings </NavLink>
+                                    <NavLink activeStyle={activeStyle} className="nav-link" to='/manageallbooking'> Manage All bookings </NavLink>
 
-                                    <NavLink activeStyle={activeStyle} className="nav-link" style={{ padding: '8px' }} to='/addaservice'> Add a Service </NavLink>
+                                    <NavLink activeStyle={activeStyle} className="nav-link" to='/addaservice'> Add a Service </NavLink>
                                 </div>
 
                             }
@@ -50,7 +50,7 @@ const Header = () => {
 
 
                                 :
-                                <div style={{ padding: '8px' }}>
+                                <div>
                                     <NavLink className="link" to='/login'> <Button className='auth-button'>Log in</Button></NavLink>
                                     <span className=' mx-2'> or </span>
                                     <NavLink className="link" to='/reg'> <Button className='auth-button'>SignUp</Button></NavLink>
