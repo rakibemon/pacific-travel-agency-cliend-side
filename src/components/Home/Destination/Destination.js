@@ -8,6 +8,8 @@ const Destination = ({ destination }) => {
     const handleBookNow = (id) => {
         history.push(`/destination/${id}`)
     };
+
+    //Admin can update any info of service
     const handleUpdate = (id) => {
         history.push(`/updateservice/${id}`)
     }
