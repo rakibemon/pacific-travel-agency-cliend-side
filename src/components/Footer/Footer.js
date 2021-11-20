@@ -11,7 +11,7 @@ const Footer = () => {
                     <Col sm={6} md={5} lg={5} xl={3}>
                         <div>
                             <Link to='/home' style={{ textDecoration: 'none' }}>  <h2 className='logo'>Pacific<span>Travel Agency</span></h2></Link>
-                            <p style={{ margin: '30px 0px', color: '#00000080' }}>We are ready to give you Service. Take a look and booking for you dream place</p>
+                            <p style={{ margin: '30px 0px', color: '#00000080' }}>We are ready to give you service. Take a look in our website and booking for you dream place</p>
                             <div className='d-flex'>
                                 <Link className='social-link' to='https://www.facebook.com/aronno.avro/'> <i className="fab fa-facebook"></i> </Link>
                                 <Link className='social-link' to='https://www.linkedin.com/in/md-rakib-istiak-82243b1ba/'> <i className="fab fa-linkedin-in"></i> </Link>
